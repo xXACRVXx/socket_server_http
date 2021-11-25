@@ -32,7 +32,7 @@ while True:
 
     try:
         file = open(Archivo , 'rb')
-        response = file.read()
+        respuesta = file.read()
         file.close()
 
         header = 'HTTP/1.1 200 OK\n'
@@ -53,9 +53,9 @@ while True:
     except Exception as e:
         print("-")
         header = 'HTTP/1.1 404 Not Found\n\n'
-        response = '<html><body>Error 404: File not found</body></html>'.encode('utf-8')
+        respuesta = '<html><body>Error 404: File not found</body></html>'.encode('utf-8')
 
-    final_response = header.encode('utf-8')
-    final_response += response
-    Conexion.send(final_response)
+    respuesta_final = header.encode('utf-8')
+    respuesta_final += respuesta
+    Conexion.send(respuesta_final)
     Conexion.close()
