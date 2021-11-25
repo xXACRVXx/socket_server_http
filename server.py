@@ -2,14 +2,14 @@ import socket
 import requests as Request
 host , port = '0.0.0.0' , 8888
 
-SERVER = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-SERVER.setsockopt(socket.SOL_SOCKET , socket.SO_REUSEADDR , 1)
-SERVER.bind((host , port))
-SERVER.listen(1)
+Server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+Server.setsockopt(socket.SOL_SOCKET , socket.SO_REUSEADDR , 1)
+Server.bind((host , port))
+Server.listen(1)
 print('servidor en el puerto',port)
 
 while True:
-    Conexion , address = SERVER.accept()
+    Conexion , address = Server.accept()
     request = Conexion.recv(1024).decode('utf-8')
     
     string_list = request.split(' ')
