@@ -9,8 +9,8 @@ SERVER.listen(1)
 print('servidor en el puerto',port)
 
 while True:
-    connection , address = SERVER.accept()
-    request = connection.recv(1024).decode('utf-8')
+    Conexion , address = SERVER.accept()
+    request = Conexion.recv(1024).decode('utf-8')
     
     string_list = request.split(' ')
     print(string_list)
@@ -57,5 +57,5 @@ while True:
 
     final_response = header.encode('utf-8')
     final_response += response
-    connection.send(final_response)
-    connection.close()
+    Conexion.send(final_response)
+    Conexion.close()
