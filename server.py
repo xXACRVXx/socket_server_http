@@ -10,40 +10,40 @@ print('servidor en el puerto',port)
 
 while True:
     Conexion , address = Server.accept()
-    request = Conexion.recv(1024).decode('utf-8')
+    Solisitud = Conexion.recv(1024).decode('utf-8')
     
-    string_list = request.split(' ')
+    string_list = Solisitud.split(' ')
     print(string_list)
     method = string_list[0]
     requesting_file = string_list[1]
     #requesting_file = '/templates'+requesting_file
     print('Client request',requesting_file)
 
-    myfile = requesting_file.split('?')[0]
-    myfile = myfile.lstrip('/')
+    Archivo = requesting_file.split('?')[0]
+    Archivo = Archivo.lstrip('/')
     
-    print(f'primer {myfile} ')
-    if(myfile == ''):
-        myfile = 'templates/index.html'
-    if(myfile == 'login'):
-        myfile = 'templates/login.html'
+    print(f'primer {Archivo} ')
+    if(Archivo == ''):
+        Archivo = 'templates/index.html'
+    if(Archivo == 'login'):
+        Archivo = 'templates/login.html'
     
 
 
     try:
-        file = open(myfile , 'rb')
+        file = open(Archivo , 'rb')
         response = file.read()
         file.close()
 
         header = 'HTTP/1.1 200 OK\n'
 
-        if(myfile.endswith('.jpg')):
+        if(Archivo.endswith('.jpg')):
             mimetype = 'image/jpg'
-        elif(myfile.endswith('.css')):
+        elif(Archivo.endswith('.css')):
             mimetype = 'text/css'
-        elif(myfile.endswith('.pdf')):
+        elif(Archivo.endswith('.pdf')):
             mimetype = 'application/pdf'
-        elif(myfile.endswith('.apk')):
+        elif(Archivo.endswith('.apk')):
             mimetype = 'application/pdf'
         else:
             mimetype = 'text/html'
