@@ -10,9 +10,9 @@ print('servidor en el puerto',port)
 
 while True:
     Conexion , address = Server.accept()
-    Solisitud = Conexion.recv(1024).decode('utf-8')
+    Solicitud = Conexion.recv(1024).decode('utf-8')
     
-    string_list = Solisitud.split(' ')
+    string_list = Solicitud.split(' ')
     print(string_list)
     method = string_list[0]
     Archivo_solicitado = string_list[1]
