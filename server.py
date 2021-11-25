@@ -15,35 +15,35 @@ while True:
     string_list = Solicitud.split(' ')
     print(string_list)
     method = string_list[0]
-    Archivo_solicitado = string_list[1]
-    #Archivo_solicitado = '/templates'+Archivo_solicitado
-    print('Client request',Archivo_solicitado)
+    archivo_solicitado = string_list[1]
+    #archivo_solicitado = '/templates'+archivo_solicitado
+    print('Client request',archivo_solicitado)
 
-    Archivo = Archivo_solicitado.split('?')[0]
-    Archivo = Archivo.lstrip('/')
+    archivo = archivo_solicitado.split('?')[0]
+    archivo = archivo.lstrip('/')
     
-    print(f'primer {Archivo} ')
-    if(Archivo == ''):
-        Archivo = 'templates/index.html'
-    if(Archivo == 'login'):
-        Archivo = 'templates/login.html'
+    print(f'primer {archivo} ')
+    if(archivo == ''):
+        archivo = 'templates/index.html'
+    if(archivo == 'login'):
+        archivo = 'templates/login.html'
     
 
 
     try:
-        file = open(Archivo , 'rb')
+        file = open(archivo , 'rb')
         respuesta = file.read()
         file.close()
 
         header = 'HTTP/1.1 200 OK\n'
 
-        if(Archivo.endswith('.jpg')):
+        if(archivo.endswith('.jpg')):
             mimetype = 'image/jpg'
-        elif(Archivo.endswith('.css')):
+        elif(archivo.endswith('.css')):
             mimetype = 'text/css'
-        elif(Archivo.endswith('.pdf')):
+        elif(archivo.endswith('.pdf')):
             mimetype = 'application/pdf'
-        elif(Archivo.endswith('.apk')):
+        elif(archivo.endswith('.apk')):
             mimetype = 'application/pdf'
         else:
             mimetype = 'text/html'
