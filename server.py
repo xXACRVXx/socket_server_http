@@ -16,7 +16,8 @@ while True:
     print(string_list)
     method = string_list[0]
     archivo_solicitado = string_list[1]
-    #archivo_solicitado = '/templates'+archivo_solicitado
+    #archivo_solicitado = '/templates'+archivo_solicitado 
+    
     print('Client request',archivo_solicitado)
 
     archivo = archivo_solicitado.split('?')[0]
@@ -31,9 +32,9 @@ while True:
 
 
     try:
-        file = open(archivo , 'rb')
-        respuesta = file.read()
-        file.close()
+        El_archivo = open(archivo , 'rb')
+        respuesta = El_archivo.read()
+        El_archivo.close()
 
         header = 'HTTP/1.1 200 OK\n'
 
@@ -53,7 +54,7 @@ while True:
     except Exception as e:
         print("-")
         header = 'HTTP/1.1 404 Not Found\n\n'
-        respuesta = '<html><body>Error 404: File not found</body></html>'.encode('utf-8')
+        respuesta = '<html><body>Error 404: El_archivo not found</body></html>'.encode('utf-8')
 
     respuesta_final = header.encode('utf-8')
     respuesta_final += respuesta
