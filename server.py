@@ -15,11 +15,11 @@ while True:
     string_list = Solisitud.split(' ')
     print(string_list)
     method = string_list[0]
-    requesting_file = string_list[1]
-    #requesting_file = '/templates'+requesting_file
-    print('Client request',requesting_file)
+    Archivo_solicitado = string_list[1]
+    #Archivo_solicitado = '/templates'+Archivo_solicitado
+    print('Client request',Archivo_solicitado)
 
-    Archivo = requesting_file.split('?')[0]
+    Archivo = Archivo_solicitado.split('?')[0]
     Archivo = Archivo.lstrip('/')
     
     print(f'primer {Archivo} ')
