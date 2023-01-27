@@ -1,6 +1,6 @@
 import socket 
 import requests as Request
-host , port = '0.0.0.0' , 8888
+host , port = '0.0.0.0' , 55556
 
 Server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 Server.setsockopt(socket.SOL_SOCKET , socket.SO_REUSEADDR , 1)
@@ -11,7 +11,7 @@ print('servidor en el puerto',port)
 while True:
     Conexion , address = Server.accept()
     Solicitud = Conexion.recv(1024).decode('utf-8')
-    
+    print(Conexion, address)
     string_list = Solicitud.split(' ')
     print(string_list)
     method = string_list[0]
